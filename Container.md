@@ -37,7 +37,7 @@
   * empty()
 * 成员访问
   * operator[], return reference/ const reference
-  * at(), *同operator[]，也是引用*
+  * at(), *同operator[]，也是引用*  
   * front(), return (const )T&, 空数组导致未定义行为，下同
   * back(),return (const )T&
   * data(), return pointer to first element in the array
@@ -715,7 +715,7 @@
     * [first,last) equal_range(const T&)
   * get_allocator
 
-###  template<T,Compare= less<T>, Alloc = {}> class multimap
+###  template<T,Compare= less<T>, Alloc = {}> class multiset
 * 元素不能修改
 * value可重复
 * 红黑树

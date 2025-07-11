@@ -447,3 +447,52 @@ bool prev_permutation(first, last, Comp);
   
 
 
+
+## \<bitset>
+template \<size_t N> class bitset
+* 每个元素只占一个bit，每个bit可以单独访问
+```C++
+// 引用类型
+std::bitset::reference
+
+// 构造
+constexpr bitset() noexcept;  //用0初始化
+constexpr bitset(unsigned long long val) noexcept; // 用val的位值初始化对象, val的表示大于N时，仅考虑val的最低有效位
+//使用 str 中的 0 和/或 1 的序列来初始化构建的 bitset 对象的前 n 个位
+explicit bitset（const basic_string<charT, traits, Alloc>& str, typename basic_string<charT, traits, Alloc>::size_type pos = 0,
+                typename basic_string<charT,traits,Alloc>::size_type n = basic_string<charT,traits,Alloc>::npos, charT zero = charT('0'), charT one = charT('1'));
+template <class charT>  explicit bitset (const charT* str,    typename basic_string<charT>::size_type n = basic_string<charT>::npos,    charT zero = charT('0'), charT one = charT('1'));
+
+bitset& operator&= (const bitset& rhs) noexcept;
+bitset& operator|= (const bitset& rhs) noexcept;
+bitset& operator^= (const bitset& rhs) noexcept;
+bitset& operator<<= (size_t pos) noexcept;
+bitset& operator>>= (size_t pos) noexcept;
+bitset operator~() const noexcept;
+bitset operator<<(size_t pos) const noexcept;
+bitset operator>>(size_t pos) const noexcept;
+bool operator== (const bitset& rhs) const noexcept;
+bool operator!= (const bitset& rhs) const noexcept;
+
+non-member functions	
+template<size_t N>  bitset<N> 
+operator& (const bitset<N>& lhs, const bitset<N>& rhs) noexcept;
+template<size_t N>  bitset<N> 
+operator| (const bitset<N>& lhs, const bitset<N>& rhs) noexcept;
+template<size_t N>  bitset<N> 
+operator^ (const bitset<N>& lhs, const bitset<N>& rhs) noexcept;
+
+iostream inserters/extractors	
+template<class charT, class traits, size_t N>  
+basic_istream<charT, traits>&    operator>> (basic_istream<charT,traits>& is, bitset<N>& rhs);
+template<class charT, class traits, size_t N>  
+basic_ostream<charT, traits>&    operator<< (basic_ostream<charT,traits>& os, const bitset<N>& rhs);
+
+
+
+```
+
+
+
+
+
